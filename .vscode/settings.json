@@ -1,0 +1,10 @@
+{
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/.ros-editor/jazzy",
+        "${workspaceFolder}/src/sara_control"
+    ],
+    "python.analysis.useLibraryCodeForTypes": true,
+    "search.exclude": {
+        "**/.ros-editor": true
+    }
+}

@@ -1,0 +1,13 @@
+services:
+  sara:
+    build: .
+    image: sara:ros
+
+    volumes:
+      - .:/sara_ws
+
+    environment:
+      WEBOTS_SHARED_FOLDER: "${PWD}/webots_shared:/sara_ws/webots_shared"
+
+    stdin_open: true
+    tty: true

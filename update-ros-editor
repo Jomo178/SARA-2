@@ -1,0 +1,29 @@
+#!/bin/bash
+set -euo pipefail
+cd "$(dirname "$0")"
+
+build_options=()
+if [[ "${1:-}" == "--build" ]]; then
+    build_options=(--build)
+elif [[ $# -gt 0 ]]; then
+    echo "Usage: ./update-ros-editor [--build]" >&2
+    exit 2
+fi
+
+docker compose run --rm --no-deps -T --entrypoint python3 ${build_options[@]+"${build_options[@]}"} sara -c '
+from pathlib import Path
+import shutil
+
+source = Path("/opt/ros/jazzy/lib/python3.12/site-packages")
+destination = Path("/sara_ws/.ros-editor/jazzy")
+files = [p for p in source.rglob("*") if p.is_file() and p.suffix in (".py", ".pyi")]
+if not files:
+    raise SystemExit("No ROS Python source files found in the SARA image.")
+for path in files:
+    target = destination / path.relative_to(source)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(path, target)
+print(f"Updated SARA-2 autocomplete: {len(files)} Python source files.")
+'
+
+echo 'In VS Code, run Developer: Reload Window to refresh suggestions.'

@@ -1,0 +1,61 @@
+#VRML_SIM R2025b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/838bb6fd3f56adf46579422651179f215ff570ce/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/838bb6fd3f56adf46579422651179f215ff570ce/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/838bb6fd3f56adf46579422651179f215ff570ce/projects/objects/solids/protos/SolidBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/838bb6fd3f56adf46579422651179f215ff570ce/projects/vehicles/protos/tesla/TeslaModel3.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.6134636722624532 0.2078314872096844 0.7618847653933473 2.6363958847961566
+  position 10.525771009948288 -13.888857049835583 48.08331487046517
+}
+SolidBox {
+  translation -8.15227 6.18896 1
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation 0 0 -0.2
+  floorSize 30 30
+  wallThickness 1
+  wallHeight 10
+}
+TeslaModel3 {
+  hidden position_0_0 -2.0978817019129896e-06
+  hidden position2_0_0 -1.5805771846717345
+  hidden position_0_1 2.0664733342115275e-06
+  hidden position2_0_1 -1.7342527334870712
+  hidden position_0_2 0.00010956127823908698
+  hidden position_0_3 -0.00018820800937791466
+  hidden linearVelocity_0 4.090112050324646e-05 6.84250459031662e-06 1.7109545826121285e-06
+  hidden angularVelocity_0 -1.526955031114103e-05 7.5627969397793125e-06 -3.3805435683070675e-05
+  hidden translation_1 0 0 0
+  hidden rotation_1 0.5735851645473915 0.5792243400738079 -0.579222947471182 2.100049856157832
+  hidden linearVelocity_1 6.928926054580327e-05 -1.3863444876589588e-05 -1.9587774855608988e-05
+  hidden angularVelocity_1 -2.4552868302428925e-06 0.0001923127640108281 -3.279428308747002e-05
+  hidden translation_2 0 0 0
+  hidden rotation_2 0.5145190117767428 -0.6063298261471637 0.6063285647605876 2.1911999301732115
+  hidden linearVelocity_2 1.4237791967916326e-05 -1.3929211701358876e-05 2.1138986219691723e-06
+  hidden angularVelocity_2 -2.257917722560108e-06 3.9599431026033236e-05 -3.277685422901373e-05
+  hidden translation_3 0 0 0
+  hidden rotation_3 0.9999999969990807 -5.478065691198487e-05 5.478063900994955e-05 1.5707960030009172
+  hidden linearVelocity_3 0.0009718412452108276 2.2644700093544605e-05 -8.381480917973389e-05
+  hidden angularVelocity_3 -2.955232182852145e-05 0.003855371096521379 2.0984944809765203e-06
+  hidden translation_4 0 0 0
+  hidden rotation_4 0.9999999911444334 -9.410403488611063e-05 9.41040041333953e-05 1.5707960088555626
+  hidden linearVelocity_4 -0.0007308480901738289 2.0597644570346777e-05 8.647305935151994e-05
+  hidden angularVelocity_4 -2.1421901413181857e-05 -0.0029316730243278827 -3.6952958999645482e-06
+  translation -11.988324725124784 -12.142679272574105 -0.22271725735549452
+  rotation -0.0027180104318531555 -0.9969041038477477 0.0785800238661919 0.015270934162475264
+  controller "<extern>"
+  sensorsSlotTop [
+    Lidar {
+      horizontalResolution 360
+      fieldOfView 6.23185
+      numberOfLayers 1
+      maxRange 15
+    }
+  ]
+}
