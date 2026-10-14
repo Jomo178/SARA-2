@@ -27,7 +27,9 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'manual_control = sara_control.manual_control:main'
+            'manual_control = sara_control.manual_control:main',
+            'obstacle_avoider = sara_control.obstacle_avoider:main',
+            'odometry = sara_control.odometry:main'
         ],
     },
 )

@@ -15,7 +15,7 @@ def generate_launch_description():
     world = LaunchConfiguration('world')
 
     webots = WebotsLauncher(
-        world=PathJoinSubstitution([package_dir, 'worlds', world]),
+        world=PathJoinSubstitution(['/sara_ws/worlds', world]),
         ros2_supervisor=True
     )
 
@@ -27,23 +27,23 @@ def generate_launch_description():
         ],
         respawn=True
     )
-
-    tesla_control = Node(
+    odometry_node = Node(
         package='sara_control',
-        executable='manual_control'
+        executable='odometry',
+        #use webots time
+        parameters=[{'use_sim_time': True}]
     )
-
 
     return LaunchDescription([
         DeclareLaunchArgument(
             'world',
-            default_value='tesla_world.wbt',
-            description='Choose one of the world files from `/webots_ros2_tesla/worlds` directory'
+            default_value='floor.wbt',
+            description='Choose a world'
         ),
         webots,
         webots._supervisor,
         tesla_driver,
-        tesla_control,
+        odometry_node,        
 
         launch.actions.RegisterEventHandler(
             event_handler=launch.event_handlers.OnProcessExit(
