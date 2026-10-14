@@ -17,7 +17,7 @@ class ManuelControl(Node):
         # Check for keyboard input every 0.05 seconds
         self.timer = self.create_timer(0.05, self.listen_key_press)
 
-        self.__ackermann_publicher = self.create_publisher(AckermannDrive, 'cmd_ackermann', 1)
+        self.__ackermann_publisher = self.create_publisher(AckermannDrive, 'cmd_ackermann', 1)
 
         self.__car = AckermannDrive()
 
@@ -42,9 +42,9 @@ class ManuelControl(Node):
             steering_angle = steering_angle - 0.05
 
         self.__car.speed = speed
-        self.__car.steering_angle = steering_angle
+        self.__car.steering_angle = max(-0.35, min(0.35, steering_angle))
 
-        self.__ackermann_publicher.publish(self.__car)
+        self.__ackermann_publisher.publish(self.__car)
 
     #cehck https://github.com/ros2/teleop_twist_keyboard/blob/jazzy/teleop_twist_keyboard.py#L180 for the key
     def listen_key_press(self):
